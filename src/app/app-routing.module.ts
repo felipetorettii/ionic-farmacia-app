@@ -11,6 +11,14 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'remedios-list',
+    loadChildren: () => import('./remedios/remedios-list/remedios-list.module').then( m => m.RemediosListPageModule)
+  },
+  {
+    path: 'remedios-register',
+    loadChildren: () => import('./remedios/remedios-register/remedios-register.module').then( m => m.RemediosRegisterPageModule)
+  },
 ];
 
 @NgModule({

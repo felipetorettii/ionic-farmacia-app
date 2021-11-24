@@ -1,0 +1,58 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+  
+      <ion-title>Cadastro de Remédios</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content [formGroup]="form">
+    <ion-item>
+      <ion-label position="stacked">Nome: </ion-label>
+      <ion-input type="text" formControlName="nome"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="stacked">Valor: </ion-label>
+      <ion-input type="number" formControlName="valor"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="stacked">Precisa receita: </ion-label>
+      <ion-checkbox type="boolean" formControlName="precisaReceita"></ion-checkbox>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="stacked">Genérico: </ion-label>
+      <ion-checkbox type="boolean" formControlName="generico"></ion-checkbox>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="stacked">Data de validade: </ion-label>
+      <ion-datetime
+        displayFormat="DD/MM/YYYY"
+        cancelText="Cancelar"
+        doneText="Selecionar"
+        formControlName="dataValidade"
+      ></ion-datetime>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="stacked">Tarja: </ion-label>
+      <ion-select formControlName="tarja">
+        <ion-select-option value="PRETA">Preta</ion-select-option>
+        <ion-select-option value="AMARELA">Amarela</ion-select-option>
+        <ion-select-option value="VERMELHA">Vermelha</ion-select-option>
+        <ion-select-option value="SEM_TARJA">Sem tarja</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-fab vertical="bottom" horizontal="end">
+      <ion-fab-button (click)="salvar()" [disabled]="!form.valid">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ion-content>
+  

@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>Lista de Remédios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>Remédios disponíveis</ion-list-header>
+
+    <ion-item-sliding *ngFor="let remedio of remedios">
+
+      <ion-item-options side="start">
+        <ion-item-option color="secondary">
+          <ion-icon name="pencil" slot="icon-only"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="excluir(game)">
+          <ion-icon name="trash" slot="icon-only"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+
+      <ion-item>
+        <ion-label>
+          <h2>{{remedio.nome}}</h2>
+          <h3>Tarja: <strong>{{remedio.tarja}}</strong></h3>
+          <h3>Precisa de receita: <strong>{{ remedio.precisaReceita ? 'Sim' : 'Não'}}</strong></h3>
+          <h3>Genérico: <strong>{{ remedio.generico ? 'Sim' : 'Não'}}</strong></h3>
+          <h3>
+            Preço:
+            <ion-text color="danger">
+              <strong> {{remedio.valor | currency : 'R$ '}} </strong>
+            </ion-text>
+          </h3>
+          <h3>
+            Validade:
+            <ion-text>
+              {{remedio.dataValidade | date: 'dd/MM/yyyy'}}
+            </ion-text>
+          </h3>
+        </ion-label>
+      </ion-item>
+
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button [routerLink]="['/remedios-register']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
