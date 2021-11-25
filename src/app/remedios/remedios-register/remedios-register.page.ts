@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Tarja } from '../remedios.model';
 import { RemediosService } from '../remedios.service';
 
@@ -15,18 +15,28 @@ export class RemediosRegisterPage implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private remediosService: RemediosService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit() {
     this.form = this.formBuilder.group({
+      id: [''],
       nome: ['', [Validators.required, Validators.minLength(3)]],
       valor: ['', Validators.required],
-      precisaReceita: ['', Validators.required],
-      generico: ['', Validators.required],
+      precisaReceita: [false, Validators.required],
+      generico: [false, Validators.required],
       dataValidade: [''],
       tarja: [Tarja.PRETA, Validators.required],
     });
+
+    const id = +this.activatedRoute.snapshot.params.id;
+    const remedio = this.remediosService.findById(id);
+    if (remedio) {
+      this.form.patchValue({
+        ...remedio
+      });
+    }
   }
 
   salvar() {

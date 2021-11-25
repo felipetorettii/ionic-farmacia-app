@@ -9,8 +9,8 @@ export interface Remedio {
 }
 
 export enum Tarja {
-    PRETA = 'preta',
-    AMARELA = 'amarela',
-    VERMELHA = 'vermelha',
-    SEM_TARJA = 'sem tarja'
+    PRETA = 'PRETA',
+    AMARELA = 'AMARELA',
+    VERMELHA = 'VERMELHA',
+    SEM_TARJA = 'SEM_TARJA'
 }

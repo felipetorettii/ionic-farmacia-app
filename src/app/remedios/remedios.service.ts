@@ -6,7 +6,7 @@ import { Remedio, Tarja } from "./remedios.model";
 })
 export class RemediosService {
     private remedios: Remedio[]
-    private contador = 1;
+    private contador = 2;
 
     constructor() {
         this.remedios = [
@@ -32,10 +32,15 @@ export class RemediosService {
 
     public save(remedio: Remedio) {
       if (remedio.id) {
-        // atualizar
+        const index = this.remedios.findIndex(r => r.id === remedio.id);
+        this.remedios[index] = remedio;
       } else {
         const id = this.contador++;
         this.remedios.push({ ...remedio, id });
       }
+    }
+
+    public findById(id: number) {
+      return this.remedios.find(remedio => remedio.id === id);
     }
 }
