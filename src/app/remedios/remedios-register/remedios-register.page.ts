@@ -41,6 +41,7 @@ export class RemediosRegisterPage implements OnInit {
 
   salvar() {
     this.remediosService.save(this.form.value);
+    this.form.reset();
     this.router.navigate(['remedios-list']);
   }
 }

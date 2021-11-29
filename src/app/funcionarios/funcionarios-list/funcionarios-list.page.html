@@ -1,0 +1,67 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+  
+      <ion-title>Lista de Funcionários</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list>
+      <ion-list-header>Funcionários cadastrados: {{ funcionarios.length }}</ion-list-header>
+  
+      <ion-item-sliding *ngFor="let funcionario of funcionarios">
+  
+        <ion-item-options side="start">
+          <ion-item-option color="secondary" [routerLink]="['/funcionarios-register', funcionario.id]">
+            <ion-icon name="pencil" slot="icon-only"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+  
+        <ion-item-options side="end">
+          <ion-item-option color="danger" (click)="excluir(funcionario)">
+            <ion-icon name="trash" slot="icon-only"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+  
+        <ion-item>
+          <ion-label>
+            <h2>
+              <ion-text color="success">
+                {{funcionario.nome}}
+              </ion-text>
+            </h2>
+            <h3>Cargo: <strong>{{ funcionario.cargo }}</strong></h3>
+            <h3>CPF: <strong>{{ funcionario.cpf }}</strong></h3>
+            <h3>Email: <strong>{{ funcionario.email }}</strong></h3>
+            <h3>
+              Data contratação:
+              <strong>
+                <ion-text>
+                  {{ funcionario.dataContratacao | date: 'dd/MM/yyyy' }}
+                </ion-text>
+              </strong>
+            </h3>
+            <h3>
+              Data nascimento:
+              <strong>
+                <ion-text>
+                  {{ funcionario.dataNascimento | date: 'dd/MM/yyyy' }}
+                </ion-text>
+              </strong>
+            </h3>
+          </ion-label>
+        </ion-item>
+  
+      </ion-item-sliding>
+    </ion-list>
+  
+    <ion-fab vertical="bottom" horizontal="end">
+      <ion-fab-button [routerLink]="['/funcionarios-register']">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ion-content>
+  
