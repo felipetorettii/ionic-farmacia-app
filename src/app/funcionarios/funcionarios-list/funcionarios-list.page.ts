@@ -25,7 +25,7 @@ export class FuncionariosListPage implements OnInit {
         this.alertController
         .create({
             header: 'Exclusão',
-            message: `Você deseja excluir o funcionário ${funcionario.nome}?`,
+            message: `Você deseja excluir o funcionário <b>${funcionario.nome}</b>?`,
             buttons: [
             {
                 text: 'Sim',

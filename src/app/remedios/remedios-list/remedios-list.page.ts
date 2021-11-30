@@ -25,7 +25,7 @@ export class RemediosListPage implements OnInit {
         this.alertController
         .create({
             header: 'Exclusão',
-            message: `Você deseja excluir o remédio ${remedio.nome}?`,
+            message: `Você deseja excluir o remédio <b>${remedio.nome}</b>?`,
             buttons: [
             {
                 text: 'Sim',
