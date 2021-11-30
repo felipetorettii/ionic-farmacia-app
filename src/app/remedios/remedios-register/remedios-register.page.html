@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-toolbar color="primary">
+    <ion-toolbar color="secondary">
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
@@ -53,6 +53,12 @@
     <ion-fab vertical="bottom" horizontal="end">
       <ion-fab-button (click)="salvar()" [disabled]="!form.valid">
         <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  
+    <ion-fab vertical="bottom" horizontal="end">
+      <ion-fab-button [routerLink]="['/remedios-list']">
+        <ion-icon name="arrow-back"></ion-icon>
       </ion-fab-button>
     </ion-fab>
   </ion-content>

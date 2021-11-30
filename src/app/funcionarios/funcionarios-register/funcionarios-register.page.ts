@@ -34,8 +34,8 @@ export class FuncionariosRegisterPage implements OnInit {
 
     const id = +this.activatedRoute.snapshot.params.id;
     const funcionario = this.funcionariosService.findById(id);
-    this.cpf = funcionario.cpf;
     if (funcionario) {
+      this.cpf = funcionario.cpf;
       this.form.patchValue({
         ...funcionario,
         dataNascimento: funcionario.dataNascimento.toString(),
