@@ -28,7 +28,11 @@
 
       <ion-item>
         <ion-label>
-          <h2>{{remedio.nome}}</h2>
+          <h2>
+            <ion-text color="success">
+              {{remedio.nome}}
+            </ion-text>
+          </h2>
           <h3>Tarja: <strong>{{remedio.tarja}}</strong></h3>
           <h3>Precisa de receita: <strong>{{ remedio.precisaReceita ? 'Sim' : 'Não'}}</strong></h3>
           <h3>Genérico: <strong>{{ remedio.generico ? 'Sim' : 'Não'}}</strong></h3>
